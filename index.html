@@ -1,0 +1,1701 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>윤회정 (써니) | 10년 차 금융·법인 컨설팅 전문가</title>
+  <!-- Google Fonts: Noto Sans KR & Noto Serif KR -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ==========================================================================
+       1. CSS Variables & Reset
+       ========================================================================== */
+    :root {
+      --navy-deep: #0f1e36;
+      --navy-primary: #1a2e4c;
+      --navy-light: #2b456d;
+      --gold-primary: #c59b5f;
+      --gold-light: #dfc08f;
+      --gold-pale: #f7f2ea;
+      --ivory-bg: #faf9f6;
+      --white: #ffffff;
+      --text-main: #1f2937;
+      --text-muted: #5b6677;
+      --border-light: #e5e2dc;
+      --shadow-sm: 0 4px 12px rgba(15, 30, 54, 0.05);
+      --shadow-md: 0 12px 28px rgba(15, 30, 54, 0.08);
+      --shadow-lg: 0 20px 40px rgba(15, 30, 54, 0.12);
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text-main);
+      background-color: var(--ivory-bg);
+      line-height: 1.65;
+      overflow-x: hidden;
+      word-break: keep-all;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    button, input, select, textarea {
+      font-family: inherit;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ==========================================================================
+       2. Typography & Section Headers
+       ========================================================================== */
+    .section {
+      padding: 96px 0;
+    }
+
+    .section-alt {
+      background-color: var(--white);
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 56px;
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold-primary);
+      background-color: var(--gold-pale);
+      padding: 6px 14px;
+      border-radius: 50px;
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 2.15rem;
+      font-weight: 700;
+      color: var(--navy-deep);
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+
+    .section-desc {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       3. Header & Navigation
+       ========================================================================== */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-light);
+      transition: var(--transition);
+    }
+
+    .header.scrolled {
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 76px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--navy-deep), var(--navy-light));
+      color: var(--gold-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Noto Serif KR', serif;
+      font-weight: 700;
+      font-size: 1.15rem;
+      box-shadow: 0 4px 10px rgba(15, 30, 54, 0.18);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: var(--navy-deep);
+      line-height: 1.2;
+    }
+
+    .brand-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-link {
+      font-size: 0.96rem;
+      font-weight: 500;
+      color: var(--navy-deep);
+      position: relative;
+      padding: 6px 0;
+      transition: var(--transition);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--gold-primary);
+      transition: var(--transition);
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--gold-primary);
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      background-color: var(--navy-deep);
+      color: var(--white);
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .nav-cta:hover {
+      background-color: var(--gold-primary);
+      color: var(--white);
+      transform: translateY(-1px);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 26px;
+      height: 20px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 1001;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 100%;
+      height: 2.5px;
+      background-color: var(--navy-deep);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: translateY(8.5px) rotate(45deg);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+
+    /* ==========================================================================
+       4. Hero Section
+       ========================================================================== */
+    .hero {
+      position: relative;
+      background: linear-gradient(135deg, var(--navy-deep) 0%, #193153 65%, #23416b 100%);
+      color: var(--white);
+      padding: 110px 0 100px;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -120px;
+      right: -120px;
+      width: 480px;
+      height: 480px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(197, 155, 95, 0.18) 0%, rgba(197, 155, 95, 0) 70%);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.85fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(223, 192, 143, 0.35);
+      color: var(--gold-light);
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      margin-bottom: 24px;
+    }
+
+    .hero-title {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      line-height: 1.32;
+      margin-bottom: 22px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-title span {
+      color: var(--gold-light);
+    }
+
+    .hero-subtitle {
+      font-size: 1.12rem;
+      color: rgba(255, 255, 255, 0.86);
+      margin-bottom: 36px;
+      max-width: 560px;
+      font-weight: 300;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+    }
+
+    .btn-primary {
+      background-color: var(--gold-primary);
+      color: var(--white);
+      box-shadow: 0 8px 20px rgba(197, 155, 95, 0.35);
+    }
+
+    .btn-primary:hover {
+      background-color: #b48a4e;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background-color: rgba(255, 255, 255, 0.08);
+      color: var(--white);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-outline:hover {
+      background-color: var(--white);
+      color: var(--navy-deep);
+      transform: translateY(-2px);
+    }
+
+    /* Profile Summary Card inside Hero */
+    .hero-card {
+      background: rgba(255, 255, 255, 0.07);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .profile-avatar {
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold-primary), var(--gold-light));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Noto Serif KR', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--navy-deep);
+      margin-bottom: 20px;
+      border: 3px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .hero-card-name {
+      font-size: 1.45rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .hero-card-role {
+      font-size: 0.92rem;
+      color: var(--gold-light);
+      margin-bottom: 22px;
+      font-weight: 500;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .stat-item strong {
+      display: block;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--gold-light);
+    }
+
+    .stat-item span {
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    /* ==========================================================================
+       5. About & Credentials (소개 및 보유 자격)
+       ========================================================================== */
+    .about-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .about-story {
+      background-color: var(--white);
+      padding: 40px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .about-story h3 {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 1.45rem;
+      color: var(--navy-deep);
+      margin-bottom: 18px;
+      line-height: 1.4;
+    }
+
+    .about-story p {
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      font-size: 0.98rem;
+    }
+
+    .about-quote {
+      margin-top: 24px;
+      padding: 18px 20px;
+      background-color: var(--gold-pale);
+      border-left: 4px solid var(--gold-primary);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--navy-deep);
+    }
+
+    .credentials-box h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--navy-deep);
+      margin-bottom: 8px;
+    }
+
+    .credentials-box > p {
+      font-size: 0.94rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .license-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .license-card {
+      background-color: var(--white);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+
+    .license-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--gold-primary);
+      box-shadow: var(--shadow-md);
+    }
+
+    .license-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background-color: var(--gold-pale);
+      color: var(--gold-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .license-info h4 {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--navy-deep);
+      margin-bottom: 2px;
+    }
+
+    .license-info span {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       6. Core Expertise (전문 분야)
+       ========================================================================== */
+    .expertise-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+
+    .expertise-card {
+      background-color: var(--ivory-bg);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .expertise-card:hover {
+      background-color: var(--white);
+      border-color: var(--gold-primary);
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .expertise-num {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--gold-primary);
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .expertise-card h3 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--navy-deep);
+      margin-bottom: 12px;
+    }
+
+    .expertise-card p {
+      font-size: 0.96rem;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .expertise-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .expertise-tags li {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--navy-primary);
+      background-color: var(--white);
+      border: 1px solid var(--border-light);
+      padding: 5px 12px;
+      border-radius: 50px;
+    }
+
+    /* ==========================================================================
+       7. Interests & Creative Lab (라이프 & AI 크리에이티브)
+       ========================================================================== */
+    .creative-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
+    }
+
+    .creative-card {
+      background-color: var(--white);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .creative-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--navy-light);
+    }
+
+    .creative-icon-wrap {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background-color: var(--navy-deep);
+      color: var(--gold-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 22px;
+    }
+
+    .creative-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--navy-deep);
+      margin-bottom: 12px;
+    }
+
+    .creative-card p {
+      font-size: 0.94rem;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+
+    .creative-meta {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--gold-primary);
+      padding-top: 14px;
+      border-top: 1px solid var(--border-light);
+    }
+
+    /* ==========================================================================
+       8. Consultation & Contact (상담 및 문의)
+       ========================================================================== */
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 0.95fr 1.15fr;
+      gap: 44px;
+      background-color: var(--ivory-bg);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .contact-info h3 {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 1.65rem;
+      color: var(--navy-deep);
+      margin-bottom: 16px;
+      line-height: 1.35;
+    }
+
+    .contact-info > p {
+      color: var(--text-muted);
+      font-size: 0.96rem;
+      margin-bottom: 32px;
+    }
+
+    .info-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .info-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background-color: var(--white);
+      border: 1px solid var(--border-light);
+      color: var(--gold-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .info-item strong {
+      display: block;
+      font-size: 0.95rem;
+      color: var(--navy-deep);
+      margin-bottom: 2px;
+    }
+
+    .info-item span {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .contact-form {
+      background-color: var(--white);
+      padding: 36px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-light);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--navy-deep);
+      margin-bottom: 8px;
+    }
+
+    .form-group label .req {
+      color: #c94a4a;
+      margin-left: 2px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 13px 16px;
+      border: 1px solid #d5d1c8;
+      border-radius: var(--radius-sm);
+      font-size: 0.95rem;
+      color: var(--text-main);
+      background-color: var(--ivory-bg);
+      transition: var(--transition);
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--gold-primary);
+      background-color: var(--white);
+      box-shadow: 0 0 0 3px rgba(197, 155, 95, 0.16);
+    }
+
+    textarea.form-control {
+      min-height: 115px;
+      resize: vertical;
+    }
+
+    .error-msg {
+      display: none;
+      font-size: 0.82rem;
+      color: #c94a4a;
+      margin-top: 6px;
+    }
+
+    .form-group.has-error .form-control {
+      border-color: #c94a4a;
+    }
+
+    .form-group.has-error .error-msg {
+      display: block;
+    }
+
+    .btn-submit {
+      width: 100%;
+      background-color: var(--navy-deep);
+      color: var(--white);
+      padding: 15px;
+      font-size: 1rem;
+      border-radius: var(--radius-sm);
+    }
+
+    .btn-submit:hover {
+      background-color: var(--gold-primary);
+    }
+
+    /* ==========================================================================
+       9. Footer
+       ========================================================================== */
+    .footer {
+      background-color: var(--navy-deep);
+      color: rgba(255, 255, 255, 0.72);
+      padding: 52px 0 40px;
+      font-size: 0.88rem;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 24px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      margin-bottom: 24px;
+    }
+
+    .footer-brand h4 {
+      font-size: 1.15rem;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .footer-brand p {
+      font-size: 0.86rem;
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold-light);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.52);
+    }
+
+    /* ==========================================================================
+       10. Custom Confirmation Modal
+       ========================================================================== */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(15, 30, 54, 0.62);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 2000;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+    }
+
+    .modal-backdrop.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-box {
+      background-color: var(--white);
+      max-width: 440px;
+      width: 100%;
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      text-align: center;
+      box-shadow: var(--shadow-lg);
+      transform: translateY(16px);
+      transition: var(--transition);
+    }
+
+    .modal-backdrop.show .modal-box {
+      transform: translateY(0);
+    }
+
+    .modal-check {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: var(--gold-pale);
+      color: var(--gold-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+
+    .modal-box h4 {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 1.4rem;
+      color: var(--navy-deep);
+      margin-bottom: 12px;
+    }
+
+    .modal-box p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 26px;
+    }
+
+    .modal-summary {
+      background-color: var(--ivory-bg);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      text-align: left;
+      font-size: 0.88rem;
+      margin-bottom: 24px;
+      border: 1px solid var(--border-light);
+    }
+
+    .modal-summary div {
+      margin-bottom: 4px;
+    }
+
+    .modal-summary div:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ==========================================================================
+       11. Scroll Reveal Animation
+       ========================================================================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.65s ease-out, transform 0.65s ease-out;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ==========================================================================
+       12. Responsive Design
+       ========================================================================== */
+    @media (max-width: 992px) {
+      .hero-grid,
+      .about-wrapper,
+      .contact-wrapper {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 84px 0 80px;
+      }
+
+      .hero-title {
+        font-size: 2.3rem;
+      }
+
+      .creative-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-menu {
+        position: fixed;
+        top: 76px;
+        left: 0;
+        width: 100%;
+        background-color: var(--white);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 24px;
+        gap: 18px;
+        border-bottom: 1px solid var(--border-light);
+        box-shadow: var(--shadow-md);
+        transform: translateY(-120%);
+        opacity: 0;
+        pointer-events: none;
+        transition: var(--transition);
+      }
+
+      .nav-menu.open {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .nav-cta {
+        width: 100%;
+        text-align: center;
+      }
+
+      .section {
+        padding: 72px 0;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+
+      .license-grid,
+      .expertise-grid,
+      .creative-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-wrapper {
+        padding: 28px 20px;
+      }
+
+      .contact-form {
+        padding: 24px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================================================
+       HEADER / NAVIGATION
+       ======================================================================== -->
+  <header class="header" id="header">
+    <div class="container nav-container">
+      <a href="#top" class="brand" aria-label="써니 윤회정 홈으로 이동">
+        <div class="brand-mark">S</div>
+        <div class="brand-text">
+          <span class="brand-name">써니 윤회정 (Sunny)</span>
+          <span class="brand-sub">한화생명 금융서비스 | 금융·법인 컨설턴트</span>
+        </div>
+      </a>
+
+      <button class="hamburger" id="hamburgerBtn" aria-label="메뉴 열기" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav-menu" id="navMenu" aria-label="주요 메뉴">
+        <a href="#about" class="nav-link">소개</a>
+        <a href="#expertise" class="nav-link">전문분야</a>
+        <a href="#creative" class="nav-link">프로젝트 &amp; 관심사</a>
+        <a href="#contact" class="nav-link">상담문의</a>
+        <a href="#contact" class="nav-cta">1:1 맞춤 상담 신청</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       HERO SECTION
+       ======================================================================== -->
+  <section class="hero" id="top">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+          </svg>
+          10년 경력의 신뢰 · 한화생명 금융서비스
+        </div>
+        <h1 class="hero-title">
+          당신의 오늘과 내일을 지키는<br />
+          <span>든든한 금융 파트너, 윤회정</span>입니다.
+        </h1>
+        <p class="hero-subtitle">
+          지난 10년간 수많은 개인과 법인 CEO의 곁에서 자산을 설계하고 리스크를 관리해 왔습니다.
+          보장 분석부터 퇴직연금, 펀드·신탁, 법인 승계까지 흔들림 없는 기준을 제시합니다.
+        </p>
+        <div class="hero-buttons">
+          <a href="#contact" class="btn btn-primary">
+            상담 문의하기
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+          <a href="#expertise" class="btn btn-outline">전문 분야 보기</a>
+        </div>
+      </div>
+
+      <aside class="hero-card" aria-label="윤회정 컨설턴트 요약 프로필">
+        <div class="profile-avatar">윤</div>
+        <h2 class="hero-card-name">윤회정 (Sunny)</h2>
+        <p class="hero-card-role">한화생명 금융서비스 · 종합자산관리 &amp; 법인 컨설턴트</p>
+        <p style="font-size: 0.9rem; color: rgba(255,255,255,0.8); line-height: 1.6;">
+          대전 유성구를 거점으로 전국의 고객님과 함께합니다. 변화하는 금융 환경 속에서도 고객에게 가장 유리한 해답을 찾아드립니다.
+        </p>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <strong>10년+</strong>
+            <span>금융·보험 현장 경력</span>
+          </div>
+          <div class="stat-item">
+            <strong>6대 자격</strong>
+            <span>공식 금융 라이선스 보유</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       ABOUT & CREDENTIALS (소개 및 보유 자격)
+       ======================================================================== -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">About &amp; Credentials</span>
+        <h2 class="section-title">검증된 전문성과 10년의 진심</h2>
+        <p class="section-desc">
+          단순한 상품 권유가 아닌, 생애주기와 기업 성장 단계에 맞춘 종합 금융 솔루션을 설계합니다.
+        </p>
+      </div>
+
+      <div class="about-wrapper">
+        <div class="about-story reveal">
+          <h3>“금융은 숫자가 아니라,<br />한 사람과 기업의 삶을 지키는 약속입니다.”</h3>
+          <p>
+            안녕하세요, 한화생명 금융서비스에서 10년째 고객의 자산을 함께 고민하고 있는 금융·법인 컨설팅 전문가 <strong>윤회정(써니)</strong>입니다.
+          </p>
+          <p>
+            보험, 연금, 펀드, 신탁은 각각 따로 떼어놓고 볼 때보다 하나의 큰 그림 안에서 균형을 맞출 때 비로소 진가를 발휘합니다. 저는 생명·손해보험은 물론 변액, 퇴직연금, 펀드·신탁 투자권유대행인 자격까지 모두 갖추어 객관적이고 입체적인 포트폴리오를 제안합니다.
+          </p>
+          <div class="about-quote">
+            “고객이 이해하지 못하는 금융은 권하지 않습니다. 가장 투명하고 명쾌한 언어로 함께 결정합니다.”
+          </div>
+        </div>
+
+        <div class="credentials-box reveal">
+          <h3>보유 공식 금융 라이선스 (6종)</h3>
+          <p>생명·손해 리스크 관리부터 연금·펀드·신탁 자산 배분까지 공인된 자격을 바탕으로 상담합니다.</p>
+
+          <div class="license-grid">
+            <!-- 자격 1 -->
+            <div class="license-card">
+              <div class="license-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+              </div>
+              <div class="license-info">
+                <h4>생명보험 모집인</h4>
+                <span>생명보험협회 등록</span>
+              </div>
+            </div>
+
+            <!-- 자격 2 -->
+            <div class="license-card">
+              <div class="license-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                </svg>
+              </div>
+              <div class="license-info">
+                <h4>손해보험 모집인</h4>
+                <span>손해보험협회 등록</span>
+              </div>
+            </div>
+
+            <!-- 자격 3 -->
+            <div class="license-card">
+              <div class="license-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+                  <polyline points="16 7 22 7 22 13"/>
+                </svg>
+              </div>
+              <div class="license-info">
+                <h4>변액보험 모집인</h4>
+                <span>생명보험협회 등록</span>
+              </div>
+            </div>
+
+            <!-- 자격 4 -->
+            <div class="license-card">
+              <div class="license-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+              </div>
+              <div class="license-info">
+                <h4>퇴직연금 모집인</h4>
+                <span>근로자퇴직급여보장법 등록</span>
+              </div>
+            </div>
+
+            <!-- 자격 5 -->
+            <div class="license-card">
+              <div class="license-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="12" y1="1" x2="12" y2="23"/>
+                  <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                </svg>
+              </div>
+              <div class="license-info">
+                <h4>펀드투자권유대행인</h4>
+                <span>금융투자협회 등록</span>
+              </div>
+            </div>
+
+            <!-- 자격 6 -->
+            <div class="license-card">
+              <div class="license-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                </svg>
+              </div>
+              <div class="license-info">
+                <h4>신탁투자권유대행인</h4>
+                <span>금융투자협회 등록</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       CORE EXPERTISE (전문 분야)
+       ======================================================================== -->
+  <section class="section section-alt" id="expertise">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Core Expertise</span>
+        <h2 class="section-title">핵심 컨설팅 전문 분야</h2>
+        <p class="section-desc">
+          법인의 지속 가능한 성장부터 개인의 안정적인 은퇴까지, 네 가지 축을 중심으로 맞춤형 전략을 수립합니다.
+        </p>
+      </div>
+
+      <div class="expertise-grid">
+        <!-- 분야 1 -->
+        <article class="expertise-card reveal">
+          <span class="expertise-num">01 / CORPORATE CONSULTING</span>
+          <h3>법인 컨설팅</h3>
+          <p>
+            법인 설립부터 성장, 승계 단계까지 CEO가 마주하는 세무·노무·재무적 리스크를 사전에 점검하고 효율적인 법인 자금 운용 플랜을 설계합니다.
+          </p>
+          <ul class="expertise-tags">
+            <li>CEO 퇴직플랜</li>
+            <li>가업승계 전략</li>
+            <li>법인 자금 운용</li>
+            <li>정관 정비 및 리스크 관리</li>
+          </ul>
+        </article>
+
+        <!-- 분야 2 -->
+        <article class="expertise-card reveal">
+          <span class="expertise-num">02 / RETIREMENT &amp; PENSION</span>
+          <h3>은퇴 및 연금 설계</h3>
+          <p>
+            100세 시대, 은퇴 이후에도 현역 시절의 품격을 유지할 수 있도록 퇴직연금(DB/DC/IRP)과 개인연금을 결합한 현금흐름 포트폴리오를 구축합니다.
+          </p>
+          <ul class="expertise-tags">
+            <li>퇴직연금 제도 도입·운용</li>
+            <li>IRP 절세 전략</li>
+            <li>개인연금 포트폴리오</li>
+            <li>변액연금 수익률 관리</li>
+          </ul>
+        </article>
+
+        <!-- 분야 3 -->
+        <article class="expertise-card reveal">
+          <span class="expertise-num">03 / COVERAGE ANALYSIS</span>
+          <h3>맞춤형 보장 분석</h3>
+          <p>
+            중복되거나 과도한 보험료는 줄이고, 중대 질병과 상해 등 실제 위기 상황에서 확실한 방패가 될 수 있도록 생명·손해보험을 통합 리모델링합니다.
+          </p>
+          <ul class="expertise-tags">
+            <li>생명·손해 통합 분석</li>
+            <li>가족 생애주기별 리모델링</li>
+            <li>보험금 청구 밀착 케어</li>
+            <li>보장 공백 점검</li>
+          </ul>
+        </article>
+
+        <!-- 분야 4 -->
+        <article class="expertise-card reveal">
+          <span class="expertise-num">04 / WEALTH MANAGEMENT</span>
+          <h3>펀드·신탁 자산 배분</h3>
+          <p>
+            저금리·고물가 시대에 자산을 지키고 키우기 위해 고객의 투자 성향과 목표 기간에 맞는 펀드 및 신탁 상품을 활용한 균형 잡힌 자산 배분을 돕습니다.
+          </p>
+          <ul class="expertise-tags">
+            <li>맞춤형 펀드 포트폴리오</li>
+            <li>신탁을 통한 자산 승계·관리</li>
+            <li>목적자금 마련 플랜</li>
+            <li>정기 리밸런싱 점검</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       INTERESTS & CREATIVE LAB (라이프 & AI 크리에이티브)
+       ======================================================================== -->
+  <section class="section" id="creative">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Life &amp; Creative Lab</span>
+        <h2 class="section-title">라이프 &amp; AI 크리에이티브</h2>
+        <p class="section-desc">
+          금융 컨설팅의 논리적 사고에 최신 AI 기술과 인문학적 통찰을 더해, 고객과 더 깊이 소통하는 길을 탐구합니다.
+        </p>
+      </div>
+
+      <div class="creative-grid">
+        <!-- 활동 1 -->
+        <article class="creative-card reveal">
+          <div class="creative-icon-wrap" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+              <line x1="8" y1="21" x2="16" y2="21"/>
+              <line x1="12" y1="17" x2="12" y2="21"/>
+            </svg>
+          </div>
+          <h3>AI 업무 자동화 &amp; 콘텐츠 기획</h3>
+          <p>
+            생성형 AI와 프롬프트 엔지니어링을 실무에 적극 접목하여 복잡한 금융·세무 정보를 누구나 이해하기 쉬운 블로그 콘텐츠와 브리핑 자료로 기획·제작합니다.
+          </p>
+          <div class="creative-meta">#프롬프트엔지니어링 #금융콘텐츠 #스마트워크</div>
+        </article>
+
+        <!-- 활동 2 -->
+        <article class="creative-card reveal">
+          <div class="creative-icon-wrap" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
+              <path d="M2 12h20"/>
+            </svg>
+          </div>
+          <h3>사주명리학 인문 연구</h3>
+          <p>
+            동양 고전 인문학인 사주명리학을 꾸준히 탐구하며 사람마다 타고난 기질과 삶의 흐름을 이해합니다. 사람을 깊이 바라보는 시선은 진정성 있는 상담의 밑거름이 됩니다.
+          </p>
+          <div class="creative-meta">#동양인문학 #사주명리연구 #삶의흐름이해</div>
+        </article>
+
+        <!-- 활동 3 -->
+        <article class="creative-card reveal">
+          <div class="creative-icon-wrap" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 18V5l12-2v13"/>
+              <circle cx="6" cy="18" r="3"/>
+              <circle cx="18" cy="16" r="3"/>
+            </svg>
+          </div>
+          <h3>AI 작곡 &amp; 감성 발라드 창작</h3>
+          <p>
+            AI 음악 생성 도구(Suno)를 활용해 일상의 따뜻한 위로와 진심을 담은 서정적인 발라드 곡을 직접 작사·프로듀싱하며 디지털 크리에이터로서의 감각을 넓혀가고 있습니다.
+          </p>
+          <div class="creative-meta">#SunoAI #발라드작곡 #디지털크리에이터</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       CONSULTATION / CONTACT SECTION (상담 및 문의)
+       ======================================================================== -->
+  <section class="section section-alt" id="contact">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Consultation &amp; Contact</span>
+        <h2 class="section-title">1:1 맞춤 상담 및 문의</h2>
+        <p class="section-desc">
+          현재 가입하신 보험 점검부터 법인 컨설팅, 은퇴·자산 배분까지 편하게 문의해 주세요.
+        </p>
+      </div>
+
+      <div class="contact-wrapper reveal">
+        <div class="contact-info">
+          <h3>작은 궁금증이라도<br />편안하게 남겨주세요.</h3>
+          <p>
+            접수해 주신 내용을 꼼꼼히 검토한 뒤, 영업일 기준 24시간 이내에 윤회정 컨설턴트가 직접 연락드려 상담 일정을 안내해 드립니다.
+          </p>
+
+          <div class="info-list">
+            <div class="info-item">
+              <div class="info-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <div>
+                <strong>상담 거점 및 지역</strong>
+                <span>대전광역시 유성구 (대전·충청권 대면 / 전국 비대면 화상 상담 가능)</span>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                </svg>
+              </div>
+              <div>
+                <strong>소속</strong>
+                <span>한화생명 금융서비스 (10년 차 금융·법인 컨설턴트)</span>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+              </div>
+              <div>
+                <strong>상담 가능 시간</strong>
+                <span>평일 09:00 ~ 19:00 (사전 예약 시 주말·야간 상담 조율 가능)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form" id="consultForm" novalidate>
+          <div class="form-group" id="groupName">
+            <label for="userName">성함 (또는 법인명) <span class="req">*</span></label>
+            <input type="text" id="userName" class="form-control" placeholder="예: 홍길동 / (주)한밭테크" required />
+            <span class="error-msg">성함 또는 법인명을 입력해 주세요.</span>
+          </div>
+
+          <div class="form-group" id="groupPhone">
+            <label for="userPhone">연락처 <span class="req">*</span></label>
+            <input type="tel" id="userPhone" class="form-control" placeholder="예: 010-1234-5678" required />
+            <span class="error-msg">올바른 휴대폰 또는 전화번호를 입력해 주세요.</span>
+          </div>
+
+          <div class="form-group" id="groupCategory">
+            <label for="consultCategory">상담 희망 분야 <span class="req">*</span></label>
+            <select id="consultCategory" class="form-control" required>
+              <option value="">상담 분야를 선택해 주세요</option>
+              <option value="법인 컨설팅 (CEO 퇴직플랜·가업승계·자금운용)">법인 컨설팅 (CEO 퇴직플랜·가업승계·자금운용)</option>
+              <option value="은퇴 및 연금 설계 (퇴직연금·개인연금)">은퇴 및 연금 설계 (퇴직연금·개인연금)</option>
+              <option value="맞춤형 보장 분석 (생명·손해보험 통합 리모델링)">맞춤형 보장 분석 (생명·손해보험 통합 리모델링)</option>
+              <option value="펀드·신탁 자산 배분">펀드·신탁 자산 배분</option>
+              <option value="기타 문의 및 협업 제안">기타 문의 및 협업 제안</option>
+            </select>
+            <span class="error-msg">상담 희망 분야를 선택해 주세요.</span>
+          </div>
+
+          <div class="form-group" id="groupMessage">
+            <label for="userMessage">문의 내용 <span class="req">*</span></label>
+            <textarea id="userMessage" class="form-control" placeholder="현재 고민 중이신 부분이나 희망하시는 상담 방식(대면/비대면)을 자유롭게 적어주세요." required></textarea>
+            <span class="error-msg">간단한 문의 내용을 입력해 주세요.</span>
+          </div>
+
+          <button type="submit" class="btn btn-submit">상담 신청 접수하기</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       FOOTER
+       ======================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <h4>써니 윤회정 (Sunny)</h4>
+          <p>한화생명 금융서비스 | 10년 차 금융·법인 컨설팅 전문가 · 대전 유성구</p>
+        </div>
+        <div class="footer-links">
+          <a href="#about">소개</a>
+          <a href="#expertise">전문분야</a>
+          <a href="#creative">프로젝트 &amp; 관심사</a>
+          <a href="#contact">상담문의</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 윤회정 (Sunny). All Rights Reserved.</span>
+        <span>본 홈페이지는 개인 브랜딩 및 상담 안내를 위해 제작되었습니다.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       CONFIRMATION MODAL (제출 완료 안내창)
+       ======================================================================== -->
+  <div class="modal-backdrop" id="confirmModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-box">
+      <div class="modal-check" aria-hidden="true">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+      </div>
+      <h4 id="modalTitle">상담 문의가 정상 접수되었습니다</h4>
+      <p>
+        소중한 문의를 남겨주셔서 감사합니다.<br />
+        내용을 확인 후 빠르게 연락드리겠습니다.
+      </p>
+      <div class="modal-summary" id="modalSummary"></div>
+      <button type="button" class="btn btn-primary" id="closeModalBtn" style="width: 100%;">확인</button>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       VANILLA JAVASCRIPT
+       ======================================================================== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      /* 1. Sticky Header Shadow & Mobile Hamburger Menu */
+      const header = document.getElementById('header');
+      const hamburgerBtn = document.getElementById('hamburgerBtn');
+      const navMenu = document.getElementById('navMenu');
+      const navLinks = document.querySelectorAll('.nav-menu a');
+
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 20) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+
+      hamburgerBtn.addEventListener('click', () => {
+        const isOpen = navMenu.classList.toggle('open');
+        hamburgerBtn.classList.toggle('active', isOpen);
+        hamburgerBtn.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      navLinks.forEach((link) => {
+        link.addEventListener('click', () => {
+          navMenu.classList.remove('open');
+          hamburgerBtn.classList.remove('active');
+          hamburgerBtn.setAttribute('aria-expanded', 'false');
+        });
+      });
+
+      /* 2. Scroll Reveal Animation via IntersectionObserver */
+      const revealElements = document.querySelectorAll('.reveal');
+      const revealObserver = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.12,
+          rootMargin: '0px 0px -40px 0px'
+        }
+      );
+
+      revealElements.forEach((el) => revealObserver.observe(el));
+
+      /* 3. Active Navigation Highlight on Scroll */
+      const sections = document.querySelectorAll('section[id]');
+      const menuItems = document.querySelectorAll('.nav-link');
+
+      window.addEventListener('scroll', () => {
+        let currentId = '';
+        const scrollPos = window.scrollY + 140;
+
+        sections.forEach((sec) => {
+          if (scrollPos >= sec.offsetTop && scrollPos < sec.offsetTop + sec.offsetHeight) {
+            currentId = sec.getAttribute('id');
+          }
+        });
+
+        menuItems.forEach((item) => {
+          item.classList.remove('active');
+          if (item.getAttribute('href') === `#${currentId}`) {
+            item.classList.add('active');
+          }
+        });
+      });
+
+      /* 4. Phone Auto-Formatting & Consultation Form Validation */
+      const consultForm = document.getElementById('consultForm');
+      const userName = document.getElementById('userName');
+      const userPhone = document.getElementById('userPhone');
+      const consultCategory = document.getElementById('consultCategory');
+      const userMessage = document.getElementById('userMessage');
+
+      const confirmModal = document.getElementById('confirmModal');
+      const modalSummary = document.getElementById('modalSummary');
+      const closeModalBtn = document.getElementById('closeModalBtn');
+
+      // 연락처 자동 하이픈 포맷팅
+      userPhone.addEventListener('input', (e) => {
+        const digits = e.target.value.replace(/\D/g, '').slice(0, 11);
+        if (digits.length < 4) {
+          e.target.value = digits;
+        } else if (digits.length < 8) {
+          e.target.value = `${digits.slice(0, 3)}-${digits.slice(3)}`;
+        } else {
+          e.target.value = `${digits.slice(0, 3)}-${digits.slice(3, 7)}-${digits.slice(7)}`;
+        }
+      });
+
+      function setFieldError(groupId, hasError) {
+        const group = document.getElementById(groupId);
+        if (hasError) {
+          group.classList.add('has-error');
+        } else {
+          group.classList.remove('has-error');
+        }
+      }
+
+      // 실시간 입력 시 에러 해제
+      [
+        { input: userName, group: 'groupName' },
+        { input: userPhone, group: 'groupPhone' },
+        { input: consultCategory, group: 'groupCategory' },
+        { input: userMessage, group: 'groupMessage' }
+      ].forEach(({ input, group }) => {
+        input.addEventListener('input', () => setFieldError(group, false));
+        input.addEventListener('change', () => setFieldError(group, false));
+      });
+
+      consultForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const nameVal = userName.value.trim();
+        const phoneVal = userPhone.value.trim();
+        const categoryVal = consultCategory.value.trim();
+        const messageVal = userMessage.value.trim();
+
+        const phoneRegex = /^0\d{1,2}-\d{3,4}-\d{4}$/;
+
+        const isNameInvalid = nameVal.length < 2;
+        const isPhoneInvalid = !phoneRegex.test(phoneVal);
+        const isCategoryInvalid = categoryVal === '';
+        const isMessageInvalid = messageVal.length < 5;
+
+        setFieldError('groupName', isNameInvalid);
+        setFieldError('groupPhone', isPhoneInvalid);
+        setFieldError('groupCategory', isCategoryInvalid);
+        setFieldError('groupMessage', isMessageInvalid);
+
+        if (isNameInvalid || isPhoneInvalid || isCategoryInvalid || isMessageInvalid) {
+          return;
+        }
+
+        // 확인 모달 요약 내용 구성 (XSS 방지를 위해 textContent 사용)
+        modalSummary.innerHTML = '';
+        const rows = [
+          { label: '신청자', value: nameVal },
+          { label: '연락처', value: phoneVal },
+          { label: '상담 분야', value: categoryVal }
+        ];
+
+        rows.forEach((row) => {
+          const div = document.createElement('div');
+          const strong = document.createElement('strong');
+          strong.textContent = `${row.label}: `;
+          div.appendChild(strong);
+          div.appendChild(document.createTextNode(row.value));
+          modalSummary.appendChild(div);
+        });
+
+        confirmModal.classList.add('show');
+        consultForm.reset();
+      });
+
+      function closeModal() {
+        confirmModal.classList.remove('show');
+      }
+
+      closeModalBtn.addEventListener('click', closeModal);
+      confirmModal.addEventListener('click', (e) => {
+        if (e.target === confirmModal) {
+          closeModal();
+        }
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && confirmModal.classList.contains('show')) {
+          closeModal();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
